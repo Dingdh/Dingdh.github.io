@@ -88,13 +88,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Ceph项目简介"><a href="#Ceph项目简介" class="headerlink" title="Ceph项目简介"></a>Ceph项目简介</h2><p>Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，<br>实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。</p>
-<p><em>Ceph的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png" alt="Ceph Architecture" title="Ceph Architecture"><br>RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务<br>Librados: RADOS客户端，用于访问RADOS<br>Librbd：在RADOS的基础上，封装出块设备接口<br>Cephfs: 在RADOS的基础上，通过mds和cephfs客户端，封装出文件接口<br>RGW: 在RADOS的基础上，封装出对象存储接口</p>
+<p><em>Ceph的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png" alt="Ceph Architecture" title="Ceph Architecture"><br>+RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务<br>+Librados: RADOS客户端，用于访问RADOS<br>+Librbd：在RADOS的基础上，封装出块设备接口<br>+Cephfs: 在RADOS的基础上，通过mds和cephfs客户端，封装出文件接口<br>+RGW: 在RADOS的基础上，封装出对象存储接口</p>
 <p><em>RADOS的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/rados_arch.png" alt="RADOS Architecture" title="RADOS Architecture"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/03/ceph_introduce/" data-id="cj3gziame0000anb22qs0lc9o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/03/ceph_introduce/" data-id="cj3gzoa6u0000f2b2oz4iii6b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
