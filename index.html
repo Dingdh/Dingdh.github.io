@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -89,12 +89,12 @@
       
         <h2 id="Ceph项目简介"><a href="#Ceph项目简介" class="headerlink" title="Ceph项目简介"></a>Ceph项目简介</h2><p>Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，<br>实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。</p>
 <p><em>Ceph的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png" alt="Ceph Architecture" title="Ceph Architecture"><br>RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务<br>Librados: RADOS客户端，用于访问RADOS<br>Librbd：在RADOS的基础上，封装出块设备接口<br>Cephfs: 在RADOS的基础上，通过mds和cephfs客户端，封装出文件接口<br>RGW: 在RADOS的基础上，封装出对象存储接口</p>
-<p><em>RADOS的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/rados_arch.png" alt="RADOS Architecture" title="RADOS Architecture"><br>RADOS分为三个部分，Librados/osd/monitor<br>osd: 存储节点的一个daemon，一般来说，一个osd负责管理一块磁盘的存储空间，并对外提供数据存取，错误恢复等功能<br>monitor:<br>ceph的架构既不是像HDFS那样，有一个重的中心节点(Namenode)，又不是像Cassandra一样完全无中心的，而是提供了一个比较轻量的中心节点Monitor，<br>Monitor中维护了系统运行时的关键元数据信息，例如用于数据路由的osdmap等，但是又不像namenode一样，很多错误恢复，块修复的决策都由monitor<br>来做，osd和client都有一定的智能性 </p>
+<p><em>RADOS的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/rados_arch.png" alt="RADOS Architecture" title="RADOS Architecture"><br>RADOS分为三个部分，Librados/osd/monitor<br>osd: 存储节点的一个daemon，一般来说，一个osd负责管理一块磁盘的存储空间，并对外提供数据存取，错误恢复等功能<br>monitor: ceph的架构既不是像HDFS那样，有一个重的中心节点(Namenode)，又不是像Cassandra一样完全无中心的，而是提供了一个比较轻量的中心节点monitor,monitor中维护了系统运行时的关键元数据信息，例如用于数据路由的osdmap等，但是又不像namenode一样，很多错误恢复，块修复的决策都由monitor来做，osd和client都有一定的智能性</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/03/ceph_introduce/" data-id="cj3h0b70900002gb2wjqzk1v7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/03/ceph_introduce/" data-id="cj3h0jcru0000asb2wii0e5vm" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
@@ -113,7 +113,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">tech</a></li></ul>
     </div>
@@ -123,7 +123,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
     </div>
@@ -133,7 +133,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/ceph/" style="font-size: 10px;">ceph</a>
     </div>
@@ -152,7 +152,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -173,7 +173,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
