@@ -5,19 +5,20 @@
   
   <title>ceph整体架构 | Ding Dinghua&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的整体结构如下：">
+  <meta name="description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的结构RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务Librados: RADOS客户端，用于">
 <meta name="keywords" content="ceph">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ceph整体架构">
-<meta property="og:url" content="http://yoursite.com/2017/06/03/ceph整体架构/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/06/03/ceph_introduce/index.html">
 <meta property="og:site_name" content="Ding Dinghua&#39;s Blog">
-<meta property="og:description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的整体结构如下：">
-<meta property="og:image" content="http://yoursite.com/Users/ding_dinghua/Dingdh.github.io/Picture/ceph_arch.png,">
-<meta property="og:updated_time" content="2017-06-03T06:28:10.000Z">
+<meta property="og:description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的结构RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务Librados: RADOS客户端，用于">
+<meta property="og:image" content="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/rados_arch.png,">
+<meta property="og:updated_time" content="2017-06-03T07:50:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ceph整体架构">
-<meta name="twitter:description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的整体结构如下：">
-<meta name="twitter:image" content="http://yoursite.com/Users/ding_dinghua/Dingdh.github.io/Picture/ceph_arch.png,">
+<meta name="twitter:description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的结构RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务Librados: RADOS客户端，用于">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png">
   
     <link rel="alternate" href="/atom.xml" title="Ding Dinghua&#39;s Blog" type="application/atom+xml">
   
@@ -57,7 +58,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -66,9 +67,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ceph整体架构" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ceph_introduce" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/03/ceph整体架构/" class="article-date">
+    <a href="/2017/06/03/ceph_introduce/" class="article-date">
   <time datetime="2017-06-03T01:55:30.000Z" itemprop="datePublished">2017-06-03</time>
 </a>
     
@@ -92,13 +93,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Ceph项目简介"><a href="#Ceph项目简介" class="headerlink" title="Ceph项目简介"></a>Ceph项目简介</h1><p>Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，<br>实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。</p>
-<p>Ceph的整体结构如下：<br><img src="/Users/ding_dinghua/Dingdh.github.io/Picture/ceph_arch.png," alt="alt text" title="Ceph Architecture"></p>
+        <h2 id="Ceph项目简介"><a href="#Ceph项目简介" class="headerlink" title="Ceph项目简介"></a>Ceph项目简介</h2><p>Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，<br>实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。</p>
+<p><em>Ceph的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png" alt="Ceph Architecture" title="Ceph Architecture"><br>RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务<br>Librados: RADOS客户端，用于访问RADOS<br>Librbd：在RADOS的基础上，封装出块设备接口<br>Cephfs: 在RADOS的基础上，通过mds和cephfs客户端，封装出文件接口<br>RGW: 在RADOS的基础上，封装出对象存储接口</p>
+<p><em>RADOS的结构</em><br><img src="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/rados_arch.png," alt="RADOS Architecture" title="RADOS Architecture"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/03/ceph整体架构/" data-id="cj3gwdpaf0000f1b28qchllxw" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/06/03/ceph_introduce/" data-id="cj3gzbezu00027gb2lz8z97c4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
@@ -107,16 +109,6 @@
   </div>
   
     
-<nav id="article-nav">
-  
-  
-    <a href="/2017/06/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -126,7 +118,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">tech</a></li></ul>
     </div>
@@ -136,7 +128,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
     </div>
@@ -155,7 +147,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
@@ -165,16 +157,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/06/03/ceph整体架构/">ceph整体架构</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/03/hello-world/">Hello World</a>
+            <a href="/2017/06/03/ceph_introduce/">ceph整体架构</a>
           </li>
         
       </ul>
