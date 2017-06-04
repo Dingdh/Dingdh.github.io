@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tags | Storage and Life</title>
+  <title>PG状态机 | Storage and Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="分布式存储系统的主要优势在于  在容量和性能上能够横向扩展 通过副本或者纠删码，提供高可用  如果是通过副本来提供高可用机制，那么就有一个基本问题，如何保证多个副本是一致的，否则如果读取不同副本得到的返回是不一样的，这样的存储系统是不可用的。在RADOS里，副本的基本是PG(Placement group), 一个PG内包含一组Object，并且PG由一组OSD来提供服务(服务的OSD由CRUSH">
+<meta name="keywords" content="ceph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PG状态机">
+<meta property="og:url" content="http://yoursite.com/2017/06/03/pg-state-machine/index.html">
 <meta property="og:site_name" content="Storage and Life">
-<meta property="og:updated_time" content="2017-06-03T01:52:36.000Z">
+<meta property="og:description" content="分布式存储系统的主要优势在于  在容量和性能上能够横向扩展 通过副本或者纠删码，提供高可用  如果是通过副本来提供高可用机制，那么就有一个基本问题，如何保证多个副本是一致的，否则如果读取不同副本得到的返回是不一样的，这样的存储系统是不可用的。在RADOS里，副本的基本是PG(Placement group), 一个PG内包含一组Object，并且PG由一组OSD来提供服务(服务的OSD由CRUSH">
+<meta property="og:updated_time" content="2017-06-03T08:53:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="PG状态机">
+<meta name="twitter:description" content="分布式存储系统的主要优势在于  在容量和性能上能够横向扩展 通过副本或者纠删码，提供高可用  如果是通过副本来提供高可用机制，那么就有一个基本问题，如何保证多个副本是一致的，否则如果读取不同副本得到的返回是不一样的，这样的存储系统是不可用的。在RADOS里，副本的基本是PG(Placement group), 一个PG内包含一组Object，并且PG由一组OSD来提供服务(服务的OSD由CRUSH">
   
     <link rel="alternate" href="/atom.xml" title="Storage and Life" type="application/atom+xml">
   
@@ -60,12 +64,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-pg-state-machine" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/tags/index.html" class="article-date">
-  <time datetime="2017-06-03T01:52:36.000Z" itemprop="datePublished">2017-06-03</time>
+    <a href="/2017/06/03/pg-state-machine/" class="article-date">
+  <time datetime="2017-06-03T08:25:57.000Z" itemprop="datePublished">2017-06-03</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tech/">tech</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -74,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      PG状态机
     </h1>
   
 
@@ -82,17 +90,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>分布式存储系统的主要优势在于</p>
+<ol>
+<li>在容量和性能上能够横向扩展</li>
+<li>通过副本或者纠删码，提供高可用</li>
+</ol>
+<p>如果是通过副本来提供高可用机制，那么就有一个基本问题，如何保证多个副本是一致的，否则如果读取不同副本得到的返回是不一样的，这样的存储系统是不可用的。<br>在RADOS里，副本的基本是PG(Placement group), 一个PG内包含一组Object，并且PG由一组OSD来提供服务(服务的OSD由CRUSH算法来确定)</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/tags/index.html" data-id="cj3if2gzj0003yhs64fdsv2hd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/03/pg-state-machine/" data-id="cj3if2gzm0006yhs63lvg6sc3" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2017/06/03/Linux_FileSystem_Introduction/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux文件系统简介
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/03/ceph_introduce/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ceph整体架构</div>
+    </a>
+  
+</nav>
+
   
 </article>
 

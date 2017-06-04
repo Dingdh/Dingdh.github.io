@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ceph整体架构 | Ding Dinghua&#39;s Blog</title>
+  <title>ceph整体架构 | Storage and Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的结构RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务Librados: RADOS客户端，用于">
 <meta name="keywords" content="ceph">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ceph整体架构">
 <meta property="og:url" content="http://yoursite.com/2017/06/03/ceph_introduce/index.html">
-<meta property="og:site_name" content="Ding Dinghua&#39;s Blog">
+<meta property="og:site_name" content="Storage and Life">
 <meta property="og:description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的结构RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务Librados: RADOS客户端，用于">
 <meta property="og:image" content="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/rados_arch.png">
@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Ceph项目简介Ceph是一个针对非结构化数据的统一存储系统，Ceph将整体存储资源通过RADOS池化之后，实现了Block device，Cephfs和RGW，分别提供块设备接口，文件系统接口和对象存储接口。 Ceph的结构RADOS: Ceph统一存储的核心，无论对外的接口是块，文件还是对象存储，在后端都抽象为Object. RADOS提供数据存取服务Librados: RADOS客户端，用于">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Dingdh/Blog/master/Picture/ceph_arch.png">
   
-    <link rel="alternate" href="/atom.xml" title="Ding Dinghua&#39;s Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Storage and Life" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -41,7 +41,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Ding Dinghua&#39;s Blog</a>
+        <a href="/" id="logo">Storage and Life</a>
       </h1>
       
     </div>
@@ -56,9 +56,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -100,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/03/ceph_introduce/" data-id="cj3h0jcru0000asb2wii0e5vm" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/06/03/ceph_introduce/" data-id="cj3if2gzc0000yhs66p6jcdzd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
@@ -109,6 +109,20 @@
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2017/06/03/pg-state-machine/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PG状态机
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -118,7 +132,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">tech</a></li></ul>
     </div>
@@ -128,9 +142,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/">kernel</a></li></ul>
     </div>
   </div>
 
@@ -138,9 +152,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ceph/" style="font-size: 10px;">ceph</a>
+      <a href="/tags/ceph/" style="font-size: 20px;">ceph</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a>
     </div>
   </div>
 
@@ -157,9 +171,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/03/Linux_FileSystem_Introduction/">Linux文件系统简介</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/03/pg-state-machine/">PG状态机</a>
+          </li>
         
           <li>
             <a href="/2017/06/03/ceph_introduce/">ceph整体架构</a>
@@ -177,8 +199,8 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2017 Ding Dinghua<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
